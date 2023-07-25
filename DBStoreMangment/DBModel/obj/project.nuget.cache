@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8R4M0WYuZAbVOy2EyQwJLCB74MCIj+l20/Av3EybIwHeAqinI4kRg7XsOEy2YAvQDvWP8pAvIH8Z6OWmlv6Vnw==",
+  "dgSpecHash": "YdPrYleLbkdJqb1Dl8rEkk6kx+br8IS72OUBVc2dEouTBoStVsEsq8C4bdgENoQPkltgBYiVDUndJF3X+uA5LQ==",
   "success": true,
-  "projectFilePath": "E:\\bin\\DBStoreMangment\\DBModel\\DBModel.csproj",
+  "projectFilePath": "E:\\projectDesktop\\Store-Management-System\\DBStoreMangment\\DBModel\\DBModel.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ABDAL\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ABDAL\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

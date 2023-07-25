@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\bin\\DBStoreMangment\\DBModel\\DBModel.csproj": {}
+    "E:\\projectDesktop\\Store-Management-System\\DBStoreMangment\\DBModel\\DBModel.csproj": {}
   },
   "projects": {
-    "E:\\bin\\DBStoreMangment\\DBModel\\DBModel.csproj": {
+    "E:\\projectDesktop\\Store-Management-System\\DBStoreMangment\\DBModel\\DBModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\bin\\DBStoreMangment\\DBModel\\DBModel.csproj",
+        "projectUniqueName": "E:\\projectDesktop\\Store-Management-System\\DBStoreMangment\\DBModel\\DBModel.csproj",
         "projectName": "DBModel",
-        "projectPath": "E:\\bin\\DBStoreMangment\\DBModel\\DBModel.csproj",
+        "projectPath": "E:\\projectDesktop\\Store-Management-System\\DBStoreMangment\\DBModel\\DBModel.csproj",
         "packagesPath": "C:\\Users\\ABDAL\\.nuget\\packages\\",
-        "outputPath": "E:\\bin\\DBStoreMangment\\DBModel\\obj\\",
+        "outputPath": "E:\\projectDesktop\\Store-Management-System\\DBStoreMangment\\DBModel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -10,6 +10,12 @@ namespace DBModel.Models
     public class StoreContext:DbContext
     {
         public DbSet<Department> Departments { get; set; }
+        public DbSet<vendor> Vendors { get; set; }
+        public DbSet<Admin> admins { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<Unit> Units { get; set; }
+        public DbSet<Store> Stores { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.
