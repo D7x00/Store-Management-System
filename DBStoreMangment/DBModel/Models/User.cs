@@ -11,10 +11,7 @@ namespace DBModel.Models
         public int Id { get; set; }
 
         [Required, MaxLength(250)]
-        public string FirstName { get; set; }
-
-        [Required, MaxLength(250)]
-        public string LastName { get; set; }
+        public string UserName { get; set; }
 
         [Required]
         [StringLength(48, ErrorMessage = "Error In Encrypt Password")]
