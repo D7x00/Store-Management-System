@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic_Action", "Logic_Action\Logic_Action.csproj", "{93C4F162-5968-41BB-9F84-91BE4F576D93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBModel", "..\DBStoreMangment\DBModel\DBModel.csproj", "{7429305F-6D81-42CD-A1C5-E081A957A180}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93C4F162-5968-41BB-9F84-91BE4F576D93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93C4F162-5968-41BB-9F84-91BE4F576D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93C4F162-5968-41BB-9F84-91BE4F576D93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93C4F162-5968-41BB-9F84-91BE4F576D93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7429305F-6D81-42CD-A1C5-E081A957A180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7429305F-6D81-42CD-A1C5-E081A957A180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7429305F-6D81-42CD-A1C5-E081A957A180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7429305F-6D81-42CD-A1C5-E081A957A180}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {021A6243-E191-4FEB-957F-6AADC0B6992C}
+	EndGlobalSection
+EndGlobal

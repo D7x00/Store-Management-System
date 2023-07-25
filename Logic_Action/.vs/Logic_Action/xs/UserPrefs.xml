@@ -1,0 +1,31 @@
+﻿<Properties>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../DBStoreMangment/DBModel/Models/User.cs">
+    <Files>
+      <File FileName="Logic_Action/Encript_Pass/Encript.cs" Line="16" Column="25" />
+      <File FileName="../DBStoreMangment/DBModel/Models/User.cs" Line="26" Column="19" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Logic_Action" expanded="True">
+            <Node name="DBModel" expanded="True">
+              <Node name="Models" expanded="True">
+                <Node name="User.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="Logic_Action">
+              <Node name="Encript_Pass" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Logic__Action FirstBuild="True" />
+</Properties>
