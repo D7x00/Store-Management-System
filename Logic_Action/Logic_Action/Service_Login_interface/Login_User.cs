@@ -1,6 +1,7 @@
 ﻿using System;
 using DBModel.Models;
 using Logic_Action.Encript_Pass;
+using Microsoft.EntityFrameworkCore;
 
 namespace Logic_Action.UserAction
 {
@@ -66,6 +67,39 @@ namespace Logic_Action.UserAction
             }
                
         }
+
+        public Result<bool> UpdateUser(string OldName, string newUserName, string newHashPassword, byte[] newSalt, bool newIsAdmin)
+        {
+            try
+            {
+                // Retrieve the existing user from the database based on the UserName
+                var user = dbContext.Users.FirstOrDefault(u => u.UserName == OldName);
+
+                if (user == null)
+                {
+
+                    return Result<bool>.Success(false);
+                }
+                
+                // Update the user properties with new values
+                user.UserName = newUserName;
+                user.HashPassword = newHashPassword;
+                user.Salt = newSalt;
+                user.IsAdmin = newIsAdmin;
+
+                // Save the changes to the database
+                dbContext.SaveChanges();
+
+                // Update successful
+                return Result<bool>.Success(true);
+            }
+            catch (Exception ex)
+            {
+
+                return Result<bool>.Failure(ex);
+            }
+        }
+
 
         public void Dispose()
         {
