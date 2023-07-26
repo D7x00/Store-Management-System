@@ -1,29 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace DBModel.Models
 {
     public class Admin
     {
+        
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Required, MaxLength(250)]
-        public string FirstName { get; set; }
-        [Required, MaxLength(250)]
-        public string LastName { get; set; }
-        [StringLength(11, MinimumLength = 11, ErrorMessage = "Phone Number Must Be 11 Numbers")]
-        [RegularExpression(@"^\d+$", ErrorMessage = "must be numeric")]
+
         [Required]
+        [MaxLength(250)]
+        public string FirstName { get; set; }
+
+        [Required]
+        [MaxLength(250)]
+        public string LastName { get; set; }
+
+        private const int PhoneNumberLength = 11;
+
+        [Required]
+        [RegularExpression(@"^\d+$", ErrorMessage = "Employee phone must be numeric")]
+        [StringLength(PhoneNumberLength, ErrorMessage = "Phone number must be {1} digits", MinimumLength = PhoneNumberLength)]
         public string EmployeePhone { get; set; }
-        [StringLength(14, MinimumLength = 14, ErrorMessage = "National ID Must Be 14 Numbers")]
-        [RegularExpression(@"^\d+$", ErrorMessage = "must be numeric")]
-        [Required(ErrorMessage = "Please Enter Your National Id")]
+
+        private const int NationalIdLength = 14;
+
+        [Required(ErrorMessage = "Please enter your national ID")]
+        [RegularExpression(@"^\d+$", ErrorMessage = "National ID must be numeric")]
+        [StringLength(NationalIdLength, ErrorMessage = "National ID must be {1} digits", MinimumLength = NationalIdLength)]
         public string NationalID { get; set; }
     }
 }

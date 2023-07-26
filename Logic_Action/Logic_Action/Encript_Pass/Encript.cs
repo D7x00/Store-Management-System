@@ -5,7 +5,6 @@ namespace Logic_Action.Encript_Pass
 {
     public static class Encript
     {
-
         private const int SaltSize = 16;
         private const int HashSize = 20;
         private const int Iterations = 10000;
@@ -28,7 +27,6 @@ namespace Logic_Action.Encript_Pass
             // Convert to base64 and return as a string
             return (Convert.ToBase64String(hashBytes), salt);
         }
-
 
         public static bool VerifyPassword(string password, string storedHashedPassword, byte[] Salt)
         {
@@ -54,4 +52,3 @@ namespace Logic_Action.Encript_Pass
         }
     }
 }
-

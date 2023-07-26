@@ -10,14 +10,15 @@ namespace DBModel.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required, MaxLength(250)]
+        [Required]
+        [MaxLength(250)]
         public string UserName { get; set; }
 
         [Required]
         [StringLength(48, ErrorMessage = "Error In Encrypt Password")]
         public string HashPassword { get; set; }
 
-        [Required, MaxLength(16)]
+        [Required]
         public byte[] Salt { get; set; }
 
         [Required]
@@ -30,4 +31,3 @@ namespace DBModel.Models
         }
     }
 }
-
