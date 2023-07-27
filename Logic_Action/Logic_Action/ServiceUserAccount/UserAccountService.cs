@@ -107,59 +107,73 @@ namespace Logic_Action.UserAction
             }
         }
 
+
+
+
         public async Task<SignInResult> SignInAsync(string userName, string password)
         {
             var result = new SignInResult();
 
-            var user = await dbContext.Users
-                .Where(u => u.UserName == userName)
-                .Select(u => new { UserName = u.UserName, HashPassword = u.HashPassword, Salt = u.Salt })
-                .FirstOrDefaultAsync();
-
-            if (user == null)
-            {
-                result.IsSuccessful = false;
-                result.ErrorMessage = "User not found";
-            }
-            else
-            {
-                if (Encript.VerifyPassword(password, user.HashPassword, user.Salt))
-                {
-                    // Sign-in successful
-                    result.IsSuccessful = true;
-                }
-                else
-                {
-                    // Incorrect password
-                    result.IsSuccessful = false;
-                    result.ErrorMessage = "Incorrect password.";
-                }
-            }
-
-            return result;
-        }
-
-        public async Task<Result<bool>> DeleteUserAsync(string userName)
-        {
             try
             {
-                var user = await dbContext.Users.FirstOrDefaultAsync(u => u.UserName == userName);
+                var user = await dbContext.Users
+                    .Where(u => u.UserName == userName)
+                    .Select(u => new { UserName = u.UserName, HashPassword = u.HashPassword, Salt = u.Salt })
+                    .FirstOrDefaultAsync();
 
                 if (user == null)
                 {
-                    return Result<bool>.Success(false); // User not found
+                    result.IsSuccessful = false;
+                    result.ErrorMessage = "User not found";
                 }
-
-                dbContext.Users.Remove(user);
-                await dbContext.SaveChangesAsync();
-
-                // Deletion successful
-                return Result<bool>.Success(true);
+                else
+                {
+                    if (Encript.VerifyPassword(password, user.HashPassword, user.Salt))
+                    {
+                        // Sign-in successful
+                        result.IsSuccessful = true;
+                    }
+                    else
+                    {
+                        // Incorrect password
+                        result.IsSuccessful = false;
+                        result.ErrorMessage = "Incorrect password.";
+                    }
+                }
             }
             catch (Exception ex)
             {
-                return Result<bool>.Failure(ex);
+                // Handle the exception
+                result.IsSuccessful = false;
+                result.ErrorMessage = "An error occurred during sign-in: " + ex.Message;
             }
+
+            return result;
+
+        }
+
+
+        public async Task<Result<bool>> DeleteUserAsync(string userName)
+            {
+                try
+                {
+                    var user = await dbContext.Users.FirstOrDefaultAsync(u => u.UserName == userName);
+
+                    if (user == null)
+                    {
+                        return Result<bool>.Success(false); // User not found
+                    }
+
+                    dbContext.Users.Remove(user);
+                    await dbContext.SaveChangesAsync();
+
+                    // Deletion successful
+                    return Result<bool>.Success(true);
+                }
+                catch (Exception ex)
+                {
+                    return Result<bool>.Failure(ex);
+                }
         }
 
         public void Dispose()
