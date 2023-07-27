@@ -8,5 +8,9 @@ namespace DBModel.Models
 {
     public class Issuing
     {
+        public Issuing()
+        {
+
+        }
     }
 }
