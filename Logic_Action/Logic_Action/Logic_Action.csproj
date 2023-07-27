@@ -10,11 +10,11 @@
     <ProjectReference Include="..\..\DBStoreMangment\DBModel\DBModel.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Encript_Pass\" />
-    <None Remove="Service_Login_interface\" />
+    <None Remove="ServiceUserAccount\" />
+    <None Remove="EncriptPass\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Encript_Pass\" />
-    <Folder Include="Service_Login_interface\" />
+    <Folder Include="ServiceUserAccount\" />
+    <Folder Include="EncriptPass\" />
   </ItemGroup>
 </Project>

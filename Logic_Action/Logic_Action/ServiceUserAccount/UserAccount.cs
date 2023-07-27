@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Logic_Action.UserAction
 {
-    public class Login_User : IDisposable
+    public class UserAccount : IDisposable
     {
         private readonly StoreContext dbContext;
 
-        public Login_User()
+        public UserAccount()
         {
             dbContext = new StoreContext();
         }
@@ -101,11 +101,49 @@ namespace Logic_Action.UserAction
         }
 
 
+
+
+        public SignInResult SignIn(string UserName, string Password)
+        {
+            var result = new SignInResult();
+
+            var user = dbContext.Users
+                .Where(u => u.UserName == UserName)
+                .Select(u => new { UserName = u.UserName, HashPassword = u.HashPassword, Salt = u.Salt })
+                .FirstOrDefault();
+
+            if (user == null)
+            {
+                
+                result.IsSuccessful = false;
+                result.ErrorMessage = "User not found";
+            }
+            else
+            {
+                if (Encript.VerifyPassword(Password, user.HashPassword, user.Salt))
+                {
+                    // Sign-in successful
+                    result.IsSuccessful = true;
+                }
+                else
+                {
+                    // Error Password
+                    result.IsSuccessful = false;
+                    result.ErrorMessage = "Incorrect password.";
+                }
+            }
+
+            return result;
+        }
+
+
         public void Dispose()
         {
             dbContext.Dispose();
         }
     }
+
+  
 
     public class Result<T>
     {
@@ -121,5 +159,11 @@ namespace Logic_Action.UserAction
 
         public static Result<T> Success(T data) => new Result<T>(data, null);
         public static Result<T> Failure(Exception error) => new Result<T>(default(T), error);
+    }
+
+    public class SignInResult
+    {
+        public bool IsSuccessful { get; set; }
+        public string ErrorMessage { get; set; }
     }
 }
