@@ -1929,32 +1929,39 @@
     ]
   },
   "packageFolders": {
-    "/Users/kareemahmed/.nuget/packages/": {}
+    "C:\\Users\\ABDAL\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/kareemahmed/Downloads/Store-Management-System/Logic_Action/Logic_Action/Logic_Action.csproj",
+      "projectUniqueName": "E:\\projectDesktop\\Store-Management-System\\Logic_Action\\Logic_Action\\Logic_Action.csproj",
       "projectName": "Logic_Action",
-      "projectPath": "/Users/kareemahmed/Downloads/Store-Management-System/Logic_Action/Logic_Action/Logic_Action.csproj",
-      "packagesPath": "/Users/kareemahmed/.nuget/packages/",
-      "outputPath": "/Users/kareemahmed/Downloads/Store-Management-System/Logic_Action/Logic_Action/obj/",
+      "projectPath": "E:\\projectDesktop\\Store-Management-System\\Logic_Action\\Logic_Action\\Logic_Action.csproj",
+      "packagesPath": "C:\\Users\\ABDAL\\.nuget\\packages\\",
+      "outputPath": "E:\\projectDesktop\\Store-Management-System\\Logic_Action\\Logic_Action\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/kareemahmed/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\ABDAL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/kareemahmed/Downloads/Store-Management-System/DBStoreMangment/DBModel/DBModel.csproj": {
-              "projectPath": "/Users/kareemahmed/Downloads/Store-Management-System/DBStoreMangment/DBModel/DBModel.csproj"
+            "E:\\projectDesktop\\Store-Management-System\\DBStoreMangment\\DBModel\\DBModel.csproj": {
+              "projectPath": "E:\\projectDesktop\\Store-Management-System\\DBStoreMangment\\DBModel\\DBModel.csproj"
             }
           }
         }
@@ -1984,7 +1991,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

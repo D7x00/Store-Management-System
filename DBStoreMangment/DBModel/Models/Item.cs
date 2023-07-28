@@ -16,5 +16,14 @@ namespace DBModel.Models
         [Required]
         [MaxLength(250)]
         public string ItemNumber { get; set; }
+        [ForeignKey("Units")]
+        public int UnitId { get; set; }
+        public virtual Unit Units { get; set; }
+        [ForeignKey("Departments")]
+        public int DeptId { get; set; }
+        public virtual Department Departments { get; set; }
+        public virtual List<ItemStore> ItemStores { get; set; }
+        public virtual List<ReceivingItem> ReceivingItems { get; set; }
+        public virtual List<IssuingItem> IssuingItems { get; set; }
     }
 }

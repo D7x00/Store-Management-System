@@ -4,6 +4,7 @@ namespace DBModel.Models
 {
     public class StoreContext : DbContext
     {
+
         public DbSet<Department> Departments { get; set; }
         public DbSet<Vendor> Vendors { get; set; }
         public DbSet<Admin> Admins { get; set; }
@@ -16,10 +17,17 @@ namespace DBModel.Models
         public DbSet<ReceivingItem> ReceivingItems { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Issuing> Issuings { get; set; }
+        public DbSet<IssuingItem> IssuingItems { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=localhost;user=sa;Initial Catalog=StoreManagement;password=yourStrong(!)Password;TrustServerCertificate=True");
+            optionsBuilder.
+           UseSqlServer("Data Source =.; Initial Catalog = StoreManagement; Integrated Security = True; TrustServerCertificate = True");
             base.OnConfiguring(optionsBuilder);
         }
     }

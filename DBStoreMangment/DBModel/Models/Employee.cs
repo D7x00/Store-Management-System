@@ -29,6 +29,8 @@ namespace DBModel.Models
         [Required(ErrorMessage = "Please enter your national ID")]
         [RegularExpression(@"^\d+$", ErrorMessage = "National ID must be numeric")]
         [StringLength(NationalIdLength, ErrorMessage = "National ID must be {1} digits", MinimumLength = NationalIdLength)]
-        public string NationalID { get; set; }
+        public string NationalID { get; set; } 
+        public virtual List<Issuing> Issuings { get; set; }
+        public virtual List<Receiving> Receivings { get; set; }
     }
 }

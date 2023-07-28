@@ -14,5 +14,6 @@ namespace DBModel.Models
         [Required]
         [MaxLength(100)]
         public string UnitName { get; set; }
+        public virtual List<Item> Items { get; set; }
     }
 }

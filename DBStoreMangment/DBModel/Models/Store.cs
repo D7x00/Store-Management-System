@@ -18,5 +18,8 @@ namespace DBModel.Models
         [StringLength(11, MinimumLength = 11, ErrorMessage = "Phone Number Must Be 11 Numbers")]
         [RegularExpression(@"^\d+$", ErrorMessage = "Store phone must be numeric")]
         public string? StorePhone { get; set; }
+        public List<ItemStore> ItemStores { get; set; }
+        public virtual List<ReceivingItem> ReceivingItems { get; set; }
+        public virtual List<IssuingItem> IssuingItems { get; set; }
     }
 }

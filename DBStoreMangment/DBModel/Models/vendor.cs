@@ -28,5 +28,8 @@ namespace DBModel.Models
         [RegularExpression(@"^\d+$", ErrorMessage = "National ID must be numeric")]
         [Required(ErrorMessage = "Please Enter Your National Id")]
         public string NationalID { get; set; }
+        [ForeignKey("Companys")]
+        public int CompanyId { get; set; }
+        public virtual Company Companys { get; set; }
     }
 }

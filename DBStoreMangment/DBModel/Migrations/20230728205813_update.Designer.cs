@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DBModel.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20230726162042_AddBestawy")]
-    partial class AddBestawy
+    [Migration("20230728205813_update")]
+    partial class update
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -82,6 +82,34 @@ namespace DBModel.Migrations
                     b.ToTable("Companies");
                 });
 
+            modelBuilder.Entity("DBModel.Models.Customer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CustomerPhone")
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("NationalID")
+                        .IsRequired()
+                        .HasMaxLength(14)
+                        .HasColumnType("nvarchar(14)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Customers");
+                });
+
             modelBuilder.Entity("DBModel.Models.Department", b =>
                 {
                     b.Property<int>("Id")
@@ -133,6 +161,66 @@ namespace DBModel.Migrations
                     b.ToTable("Employees");
                 });
 
+            modelBuilder.Entity("DBModel.Models.Issuing", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("IssuingDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("Issuings");
+                });
+
+            modelBuilder.Entity("DBModel.Models.IssuingItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("IssuingId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StoreId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("UnitPrice")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IssuingId");
+
+                    b.HasIndex("ItemId");
+
+                    b.HasIndex("StoreId");
+
+                    b.ToTable("IssuingItems");
+                });
+
             modelBuilder.Entity("DBModel.Models.Item", b =>
                 {
                     b.Property<int>("Id")
@@ -140,6 +228,9 @@ namespace DBModel.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("DeptId")
+                        .HasColumnType("int");
 
                     b.Property<string>("ItemName")
                         .IsRequired()
@@ -151,7 +242,14 @@ namespace DBModel.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
+                    b.Property<int>("UnitId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("DeptId");
+
+                    b.HasIndex("UnitId");
 
                     b.ToTable("Items");
                 });
@@ -317,6 +415,9 @@ namespace DBModel.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int>("CompanyId")
+                        .HasColumnType("int");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(250)
@@ -339,19 +440,86 @@ namespace DBModel.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CompanyId");
+
                     b.ToTable("Vendors");
                 });
 
-            modelBuilder.Entity("DBModel.Models.ItemStore", b =>
+            modelBuilder.Entity("DBModel.Models.Issuing", b =>
                 {
+                    b.HasOne("DBModel.Models.Customer", "Customers")
+                        .WithMany("Issuings")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DBModel.Models.Employee", "Employees")
+                        .WithMany("Issuings")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customers");
+
+                    b.Navigation("Employees");
+                });
+
+            modelBuilder.Entity("DBModel.Models.IssuingItem", b =>
+                {
+                    b.HasOne("DBModel.Models.Issuing", "Issuings")
+                        .WithMany("IssuingItems")
+                        .HasForeignKey("IssuingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("DBModel.Models.Item", "Items")
-                        .WithMany()
+                        .WithMany("IssuingItems")
                         .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("DBModel.Models.Store", "Stores")
-                        .WithMany()
+                        .WithMany("IssuingItems")
+                        .HasForeignKey("StoreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Issuings");
+
+                    b.Navigation("Items");
+
+                    b.Navigation("Stores");
+                });
+
+            modelBuilder.Entity("DBModel.Models.Item", b =>
+                {
+                    b.HasOne("DBModel.Models.Department", "Departments")
+                        .WithMany("Items")
+                        .HasForeignKey("DeptId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DBModel.Models.Unit", "Units")
+                        .WithMany("Items")
+                        .HasForeignKey("UnitId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Departments");
+
+                    b.Navigation("Units");
+                });
+
+            modelBuilder.Entity("DBModel.Models.ItemStore", b =>
+                {
+                    b.HasOne("DBModel.Models.Item", "Items")
+                        .WithMany("ItemStores")
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DBModel.Models.Store", "Stores")
+                        .WithMany("ItemStores")
                         .HasForeignKey("StoreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -364,7 +532,7 @@ namespace DBModel.Migrations
             modelBuilder.Entity("DBModel.Models.Receiving", b =>
                 {
                     b.HasOne("DBModel.Models.Employee", "Employees")
-                        .WithMany()
+                        .WithMany("Receivings")
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -383,7 +551,7 @@ namespace DBModel.Migrations
             modelBuilder.Entity("DBModel.Models.ReceivingItem", b =>
                 {
                     b.HasOne("DBModel.Models.Item", "Items")
-                        .WithMany()
+                        .WithMany("ReceivingItems")
                         .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -395,7 +563,7 @@ namespace DBModel.Migrations
                         .IsRequired();
 
                     b.HasOne("DBModel.Models.Store", "Stores")
-                        .WithMany()
+                        .WithMany("ReceivingItems")
                         .HasForeignKey("StoreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -407,9 +575,70 @@ namespace DBModel.Migrations
                     b.Navigation("Stores");
                 });
 
+            modelBuilder.Entity("DBModel.Models.Vendor", b =>
+                {
+                    b.HasOne("DBModel.Models.Company", "Companys")
+                        .WithMany("Vendors")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Companys");
+                });
+
+            modelBuilder.Entity("DBModel.Models.Company", b =>
+                {
+                    b.Navigation("Vendors");
+                });
+
+            modelBuilder.Entity("DBModel.Models.Customer", b =>
+                {
+                    b.Navigation("Issuings");
+                });
+
+            modelBuilder.Entity("DBModel.Models.Department", b =>
+                {
+                    b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("DBModel.Models.Employee", b =>
+                {
+                    b.Navigation("Issuings");
+
+                    b.Navigation("Receivings");
+                });
+
+            modelBuilder.Entity("DBModel.Models.Issuing", b =>
+                {
+                    b.Navigation("IssuingItems");
+                });
+
+            modelBuilder.Entity("DBModel.Models.Item", b =>
+                {
+                    b.Navigation("IssuingItems");
+
+                    b.Navigation("ItemStores");
+
+                    b.Navigation("ReceivingItems");
+                });
+
             modelBuilder.Entity("DBModel.Models.Receiving", b =>
                 {
                     b.Navigation("ReceivingItems");
+                });
+
+            modelBuilder.Entity("DBModel.Models.Store", b =>
+                {
+                    b.Navigation("IssuingItems");
+
+                    b.Navigation("ItemStores");
+
+                    b.Navigation("ReceivingItems");
+                });
+
+            modelBuilder.Entity("DBModel.Models.Unit", b =>
+                {
+                    b.Navigation("Items");
                 });
 #pragma warning restore 612, 618
         }

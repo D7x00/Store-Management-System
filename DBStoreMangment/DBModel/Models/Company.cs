@@ -17,5 +17,6 @@ namespace DBModel.Models
         public string? CompanyLocation { get; set; }
 
         public string? Description { get; set; }
+        public virtual List<Vendor> Vendors { get; set; }
     }
 }
