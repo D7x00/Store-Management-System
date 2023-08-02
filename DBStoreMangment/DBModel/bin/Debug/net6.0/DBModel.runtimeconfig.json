@@ -8,5 +8,6 @@
     "configProperties": {
       "System.Reflection.NullabilityInfoContext.IsSupported": true
     }
+  
   }
 }

@@ -27,7 +27,7 @@ namespace DBModel.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.
-           UseSqlServer("Data Source =.; Initial Catalog = StoreManagement; Integrated Security = True; TrustServerCertificate = True");
+           UseSqlServer("server=localhost;user=sa;database=StoreManagement;password=yourStrong(!)Password; TrustServerCertificate = True");
             base.OnConfiguring(optionsBuilder);
         }
     }

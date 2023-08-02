@@ -1,23 +1,28 @@
 ﻿<Properties>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/Issuing.cs">
+    <Files>
+      <File FileName="Models/StoreContext.cs" Line="23" Column="1" />
+      <File FileName="Models/User.cs" Line="32" Column="6" />
+      <File FileName="Models/vendor.cs" Line="1" Column="1" />
+      <File FileName="Models/Issuing.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="DBModel">
-            <Node name="DBModel">
-              <Node name="Models" expanded="True">
-                <Node name="StoreContext.cs" selected="True" />
-              </Node>
+            <Node name="DBModel" expanded="True">
+              <Node name="Migrations" selected="True" />
+              <Node name="Models" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

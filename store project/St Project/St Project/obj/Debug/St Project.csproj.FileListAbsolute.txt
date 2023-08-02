@@ -1,0 +1,13 @@
+C:\Users\Lenovo\Desktop\store project\St Project\St Project\bin\Debug\St Project.exe.config
+C:\Users\Lenovo\Desktop\store project\St Project\St Project\bin\Debug\St Project.exe
+C:\Users\Lenovo\Desktop\store project\St Project\St Project\bin\Debug\St Project.pdb
+C:\Users\Lenovo\Desktop\store project\St Project\St Project\obj\Debug\St Project.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\store project\St Project\St Project\obj\Debug\St Project.csproj.SuggestedBindingRedirects.cache
+C:\Users\Lenovo\Desktop\store project\St Project\St Project\obj\Debug\St_Project.Form1.resources
+C:\Users\Lenovo\Desktop\store project\St Project\St Project\obj\Debug\St_Project.Properties.Resources.resources
+C:\Users\Lenovo\Desktop\store project\St Project\St Project\obj\Debug\St Project.csproj.GenerateResource.cache
+C:\Users\Lenovo\Desktop\store project\St Project\St Project\obj\Debug\St Project.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\store project\St Project\St Project\obj\Debug\St Project.exe
+C:\Users\Lenovo\Desktop\store project\St Project\St Project\obj\Debug\St Project.pdb
+C:\Users\Lenovo\Desktop\store project\St Project\St Project\obj\Debug\St_Project.Form2.resources
+C:\Users\Lenovo\Desktop\store project\St Project\St Project\obj\Debug\St_Project.newpass.resources
